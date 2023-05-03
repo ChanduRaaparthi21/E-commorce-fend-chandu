@@ -28,6 +28,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './register/register.component';
+import { CartComponent } from './cart/cart.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 @NgModule({
@@ -43,6 +52,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     DragDirective,
     ShowProductDetailsComponent,
     ShowProductImagesDialogComponent,
+    ProductViewDetailsComponent,
+    BuyProductComponent,
+    OrderConfirmationComponent,
+    RegisterComponent,
+    CartComponent,
+    MyOrdersComponent,
+    OrderDetailsComponent,
 
   
   ],
@@ -60,7 +76,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatGridListModule,
     MatTableModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonToggleModule
   ],
   providers: [
     AuthGuard,

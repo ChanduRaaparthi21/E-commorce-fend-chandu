@@ -1,0 +1,81 @@
+<h1 class="mt-4 " style="text-align: center;"><b style="font-style: inherit;"> Order Information</b></h1>
+<div class="container mt-4 p-9">
+
+
+ <mat-button-toggle-group aria-label="Font Style">
+  <mat-button-toggle value="All" (click)="getAllOrderDetailsForAdmin('All')" >All</mat-button-toggle>
+  <mat-button-toggle value="Placed"  (click)="getAllOrderDetailsForAdmin('Placed')">Placed</mat-button-toggle>
+  <mat-button-toggle value="Delivered"  (click)="getAllOrderDetailsForAdmin('Delivered')">Delivered</mat-button-toggle>
+</mat-button-toggle-group>
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+ 
+  <!-- Id Column -->
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+  </ng-container>
+ 
+  <!-- Product Column -->
+  <ng-container matColumnDef="Product Name">
+    <th mat-header-cell *matHeaderCellDef> Product Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.product.productName}} </td>
+  </ng-container>
+
+  <!-- Product Column
+  <ng-container matColumnDef="Amount">
+   <th mat-header-cell *matHeaderCellDef>Amount </th>
+   <td mat-cell *matCellDef="let element"> {{element.orderAmount}} </td>
+ </ng-container> -->
+ 
+  <!-- Customer Column -->
+  <ng-container matColumnDef="Customer Name">
+    <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.orderFullName}} </td>
+  </ng-container>
+
+  
+ 
+  <!-- Contact Column -->
+  <ng-container matColumnDef="Contact No. / Alternate Contact No.">
+    <th mat-header-cell *matHeaderCellDef> Contact No. / Alternate Contact No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.orderContactNumber}} | {{element.orderAlternateContactNumber}} </td>
+  </ng-container>
+
+  <!-- Address Column -->
+  <ng-container matColumnDef="Address">
+   <th mat-header-cell *matHeaderCellDef> Address </th>
+   <td mat-cell *matCellDef="let element"> {{element.orderFullOrder}} </td>
+ </ng-container>
+
+  <!-- user Column -->
+  <ng-container matColumnDef="User Name">
+   <th mat-header-cell *matHeaderCellDef> User Name </th>
+   <td mat-cell *matCellDef="let element"> {{element.user.userName}} </td>
+ </ng-container>
+
+<!-- Status Column -->
+  <ng-container matColumnDef="Status">
+   <th mat-header-cell *matHeaderCellDef> Status </th>
+   <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+ </ng-container>
+ 
+<!-- Status Column -->
+<ng-container matColumnDef="Action">
+ <th mat-header-cell *matHeaderCellDef> Action </th>
+ <td mat-cell *matCellDef="let element">  
+  <button *ngIf="element.orderStatus == 'placed'" mat-raised-button color="accent" (click)="markAsDelivered(element.orderId)">Mark As Delivered</button>
+ </td>
+</ng-container>
+ 
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ </table>
+ <div class="text-center mt-5" style="padding-bottom: 30PX;"></div>
+ 
+ 
+
+</div>
+
