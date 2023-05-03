@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jwt-youtube-ui": {
+    "chandu-fend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jwt-youtube-ui",
+            "outputPath": "dist/chandu-fend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "jwt-youtube-ui:build"
+            "browserTarget": "chandu-fend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "jwt-youtube-ui:build:production"
+              "browserTarget": "chandu-fend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jwt-youtube-ui:build"
+            "browserTarget": "chandu-fend:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "jwt-youtube-ui:serve"
+            "devServerTarget": "chandu-fend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "jwt-youtube-ui:serve:production"
+              "devServerTarget": "chandu-fend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "jwt-youtube-ui",
+  "defaultProject": "chandu-fend",
   "cli": {
     "analytics": false
   }

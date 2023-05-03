@@ -32,8 +32,7 @@ export class ShowProductDetailsComponent implements OnInit {
     private productService: ProductService,
     public imagesDialog: MatDialog,
     private imageProcessingService: ImageProcessingService,
-    private router: Router,
-    private injector:Injector
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +46,7 @@ export class ShowProductDetailsComponent implements OnInit {
     this.getAllProducts(searchkeyword);
   }
   //this is return the all products on product view details page...
-  public getAllProducts(searchByKeyword: string = '') {
+  public getAllProducts(searchByKeyword: string = " ") {
     this.showTable = false;
     this.productService
       .getAllProducts(this.pageNumber, searchByKeyword)
@@ -60,8 +59,9 @@ export class ShowProductDetailsComponent implements OnInit {
       )
       .subscribe(
         (resp: Product[]) => {
-          console.log(resp);
-          resp.forEach((product) => this.poductDetails.push(product));
+          //console.log(resp);
+          resp.forEach(product => this.poductDetails.push(product));
+          console.log('msg',this.poductDetails);
           this.showTable = true;
 
           if (resp.length == 8) {
@@ -79,6 +79,7 @@ export class ShowProductDetailsComponent implements OnInit {
   deleteProduct(productId) {
     this.productService.deleteProduct(productId).subscribe(
       (resp) => {
+        this.getAllProducts();
         this.getAllProducts();
       },
       (error: HttpErrorResponse) => {

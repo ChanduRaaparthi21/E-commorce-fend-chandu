@@ -19,7 +19,7 @@ export class ProductService {
   }
 
 
-  public getAllProducts(pageNumber,searchkeyword: string="") {
+  public getAllProducts(pageNumber,searchkeyword: string=" ") {
 
     return this.httpClient.get<Product[]>("http://localhost:9090/getAllProducts?pageNumber="+pageNumber+"&searchKey="+searchkeyword);
 
